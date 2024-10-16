@@ -30,7 +30,7 @@ const Chart: FC<IChart> = ({ totalExpense, totalIncome }) => {
 				paddingAngle={2}
 				dataKey="value"
 			>
-				{data.map((entry, index) => (
+				{data.map((__entry, index) => (
 					<Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
 				))}
 			</Pie>

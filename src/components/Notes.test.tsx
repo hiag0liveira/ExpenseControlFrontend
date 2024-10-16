@@ -5,5 +5,6 @@ import Notes from './Notes'
 test('Notes should be visible', async () => {
 	const { getByText } = render(<Notes />)
 
+	// @ts-ignore
 	await expect.element(getByText('Notes')).toBeInTheDocument('12')
 })

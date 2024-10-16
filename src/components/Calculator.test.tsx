@@ -8,7 +8,8 @@ test('6 + 6 = 12', async () => {
 	await getByRole('button', { name: '6' }).click()
 	await getByRole('button', { name: '+' }).click()
 	await getByRole('button', { name: '6' }).click()
-    await getByRole('button', { name: '=' }).click()
+	await getByRole('button', { name: '=' }).click()
+	// @ts-ignore
 	await expect.element(getByRole('textbox')).toHaveValue('12')
 })
 
@@ -20,7 +21,6 @@ test('5 * 5 = 25', async () => {
 	await getByRole('button', { name: '*' }).click()
 	await getByRole('button', { name: '5' }).click()
 	await getByRole('button', { name: '=' }).click()
-	await expect
-		.element(getByRole('textbox'))
-		.toHaveValue('25')
+	// @ts-ignore
+	await expect.element(getByRole('textbox')).toHaveValue('25')
 })
