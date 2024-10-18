@@ -24,3 +24,15 @@ test('5 * 5 = 25', async () => {
 	// @ts-ignore
 	await expect.element(getByRole('textbox')).toHaveValue('25')
 })
+
+test('Divisão por zero', async () => {
+	const { getByRole } = render(<Calculator />)
+	await getByRole('button', { name: 'C' }).click()
+	await getByRole('button', { name: '5' }).click()
+	await getByRole('button', { name: '/' }).click()
+	await getByRole('button', { name: '0' }).click()
+	await getByRole('button', { name: '=' }).click()
+
+	// @ts-ignore
+	await expect.element(getByRole('textbox')).toHaveValue('Error')
+})
