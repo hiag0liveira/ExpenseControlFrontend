@@ -13,7 +13,11 @@ const Calculator: FC = () => {
 
 	const handleCalculate = () => {
 		try {
+			if(input.includes('/0')){
+				setInput('Error')
+			}else{
 			setInput(eval(input).toString())
+			}
 		} catch {
 			setInput('Error')
 		}
