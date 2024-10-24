@@ -18,3 +18,22 @@ test('should display loading message initially', async () => {
 
     mockGet.mockRestore();
 });
+
+test('should display the chart without data', async () => {
+  
+    vi.restoreAllMocks();
+
+    const mockGet = vi.spyOn(instance, 'get')
+        .mockImplementation(() => Promise.resolve({ data: [] }));
+
+    const { getByText } = render(<ChartCambio />);
+
+    // @ts-ignore
+    await expect.element(getByText('USD to BRL Exchange Rate')).toBeInTheDocument();
+
+    // @ts-ignore
+     await expect.element(getByText('Exchange Rate')).toBeInTheDocument(); 
+
+    mockGet.mockRestore();
+});
+
