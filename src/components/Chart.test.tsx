@@ -9,10 +9,10 @@ test('should render Chart with correct data', async  () => {
     getByText('Expense');
     
     // @ts-ignore
-    await expect.element(getByText('Income')).toBeInTheDocument();
+    await expect.element(getByText('Income')).toBeInTheDocument('1000');
     
     // @ts-ignore
-    await expect.element(getByText('Expense')).toBeInTheDocument();
+    await expect.element(getByText('Expense')).toBeInTheDocument('500');
 });
 
 test('should handle zero values', async  () => {
@@ -21,5 +21,3 @@ test('should handle zero values', async  () => {
     // @ts-ignore
     await expect.element(getByText('No data available')).toBeInTheDocument();
 });
-
-
