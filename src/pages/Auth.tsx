@@ -6,7 +6,7 @@ import { useAppDispatch } from '../store/hooks'
 import { login } from '../store/user/userSlice'
 import { useNavigate } from 'react-router-dom'
 
-const Auth: FC = () => {
+const Auth: FC <{ search?: string }> = ({ search }) => {
 	const [email, setEmail] = useState<string>('')
 	const [password, setPassword] = useState<string>('')
 	const [isLogin, setIsLogin] = useState<boolean>(false)
@@ -15,10 +15,11 @@ const Auth: FC = () => {
 
 	useEffect(() => {
 		// Update `isLogin` state based on URL query parameter
-		const query = new URLSearchParams(location.search)
+		const query = new URLSearchParams(search || location.search)
 		const mode = query.get('mode')
+		console.log("mode: ", mode)
 		setIsLogin(mode === 'login')
-	}, [location.search])
+	}, [search])
 
 	const loginHandler = async (e: React.FormEvent<HTMLFormElement>) => {
 		try {
